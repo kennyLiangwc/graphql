@@ -1,0 +1,17 @@
+mutation{
+  addUser(input: {
+    name: "test1",
+    sex: 2,
+    country: "日本"
+  }){
+    ret
+  }
+}
+
+
+{
+  queryUser{
+    name
+    sex
+  }
+}

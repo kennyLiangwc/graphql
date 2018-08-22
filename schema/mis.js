@@ -22,6 +22,6 @@ module.exports = buildSchema(`
         addUser(input:UserInput):Ret
     }
     type Query{
-        queryUser(id:ID,input:UserInput):QueryUserResult
+        queryUser(id:ID,input:UserInput):[QueryUserResult]
     }
 `)

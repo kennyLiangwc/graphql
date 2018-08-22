@@ -10,6 +10,13 @@ exports.addUser = {
         console.log("input",input);
         const { name, sex, country } = input;
         const uid = tool.uuid()
-        return UserModel.addUser(uid, name, sex, country)
+        return await UserModel.addUser(uid, name, sex, country)
     }
+}
+
+exports.queryUser = {
+	filters: [],
+	method: async function() {
+		return await UserModel.queryUser()
+	}
 }

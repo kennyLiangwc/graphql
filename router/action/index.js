@@ -13,9 +13,9 @@ function generateRootDeal(dir) {
     for(let name in root) {
         let handle = root[name];
         const tb = +new Date();
-        console.log("root",root[name]);
+        console.log("root====",root[name]);
         root[name] = async function(data = {}, req, schema) {
-            console.log('in');
+            console.log('in============');
             try {
                 const { filters, method } = handle
                 if(filters && filters.length > 0) {
@@ -34,9 +34,9 @@ function generateRootDeal(dir) {
             }
         }
     }
-
+    return root
 }
+
 module.exports = {
-    mis: generateRootDeal('mis'),
-    test: generateRootDeal('test')
+    mis: generateRootDeal('mis')
 }
