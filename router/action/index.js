@@ -13,9 +13,7 @@ function generateRootDeal(dir) {
     for(let name in root) {
         let handle = root[name];
         const tb = +new Date();
-        console.log("root====",root[name]);
         root[name] = async function(data = {}, req, schema) {
-            console.log('in============');
             try {
                 const { filters, method } = handle
                 if(filters && filters.length > 0) {
@@ -23,7 +21,6 @@ function generateRootDeal(dir) {
                         await filters()
                     }
                 }
-                console.log("data=========",data);
                 return await method(data, req, schema)
             }catch(e) {
                 console.error(e)

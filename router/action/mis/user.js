@@ -16,7 +16,15 @@ exports.addUser = {
 
 exports.queryUser = {
 	filters: [],
-	method: async function() {
-		return await UserModel.queryUser()
+	method: async function({input}) {
+	    const { name } = input
+		return await UserModel.queryUser(null,name,null,null)
 	}
+}
+
+exports.delUser = {
+    filters: [],
+    method: async function({id}) {
+        return await UserModel.delUser(id)
+    }
 }

@@ -13,12 +13,33 @@ exports.addUser = async function(id,name,sex,country) {
 }
 
 exports.queryUser = async function(id,name,sex,country) {
-	let values = [], whereSql = ``;
+	let values = [], whereSql = `where state!=-1`;
 	if(id) {
-		whereSql+=`where`
+		whereSql+=` and id=?`;
+		values.push(id)
 	}
-	const querySql = `select * from t_base_user`;
-	const result = await mdb.exeSql(querySql,[]);
-	console.log("result",result.results)
+	if(name) {
+		whereSql+=` and name=?`
+		values.push(name)
+	}
+	if(sex) {
+		whereSql+=` and sex=?`
+		values.push(sex)
+	}
+	if(country) {
+		whereSql+=` and country=?`
+		values.push(country)
+	}
+	const querySql = `select * from t_base_user ${whereSql}`;
+	const result = await mdb.exeSql(querySql,values);
 	return result.results
+}
+
+exports.delUser = async function(id) {
+	const delSql = `update t_base_user set state=-1 where id=?`
+	await mdb.exeSql(delSql,[id])
+    return {
+        ret: 0,
+        msg: 'OK'
+    }
 }
