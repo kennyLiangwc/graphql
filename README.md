@@ -8,8 +8,10 @@
 3. 对于 Android 或 iOS 客户端，发版升级了一个很爆炸的功能，同一个API上可能为了支持这个功能而多吐一些数据，要做部分屏蔽，造成风险；
 4. 当需求或者数据改变时，它们都要新增一个接口适应变化，久而久之会造成代码越来也长。
 <center> 渲染一个页面需要多个请求</center >  
+
 ![image](http://pdwlanqdy.bkt.clouddn.com/view.png)
 <center> 返回部分毫无意义的字段</center >
+
 ![image](http://pdwlanqdy.bkt.clouddn.com/traditional.png)
 -----------------
 #### graphql 就是为解决以上问题而来的，向服务端发送一次描述信息，告知客户端所需的所有数据，数据的控制甚至可以精细到字段，达到一次请求获取所有所需数据的目的。
