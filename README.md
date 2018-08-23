@@ -7,9 +7,11 @@
 2. 前端一个页面可能要调接个接口获取数据才能渲染完成页面，发送一个http请求比较消耗资源的，特别在弱网络情况下，这种体验更不好；
 3. 对于 Android 或 iOS 客户端，发版升级了一个很爆炸的功能，同一个API上可能为了支持这个功能而多吐一些数据，要做部分屏蔽，造成风险；
 4. 当需求或者数据改变时，它们都要新增一个接口适应变化，久而久之会造成代码越来也长。
+
 <center> 渲染一个页面需要多个请求</center >  
 
 ![image](http://pdwlanqdy.bkt.clouddn.com/view.png)
+
 <center> 返回部分毫无意义的字段</center >
 
 ![image](http://pdwlanqdy.bkt.clouddn.com/traditional.png)
@@ -22,9 +24,11 @@ graphql还提供一个界面调试接口，大大提高了开发效率，如下�
 <center> 举个例子，查询书籍时，前端根据需要可以任意组合从服务器里取state,publish,name等字段（你要啥就取啥）</center >  
 
 ![image](http://pdwlanqdy.bkt.clouddn.com/query.gif)
+
 <center> 一个页面需要查询用户为test1并返回他的country,书籍列表返回state等字段，组合接口，一个请求就ok，有木有很爽的感觉！！！</center >  
 
 ![image](http://pdwlanqdy.bkt.clouddn.com/query_com.png)
+
 <center> 同时添加一本书本信息和删除一个用户，组合接口，一个请求就OK了~~~~~~~~~ </center >  
 
 ![image](http://pdwlanqdy.bkt.clouddn.com/mutation_com.png)
